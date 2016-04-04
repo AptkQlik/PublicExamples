@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="CustomDesktop" Version="2.1" Language="en-US" Publisher="QlikTech International AB" />
+    <DisplayName>CustomDesktop</DisplayName>
+    <Description>The purpose of this sample is to show how the Qlik Sense .Net SDK can be used to create a custom desktop than launches Qlik Sense as a background process and provides a simple custom GUI for interacting with it. 
+  </Description>
+    <License>disclaimer.txt</License>
+    <MoreInfo>http://help.qlik.com/sense/2.1/en-us/developer/#../Subsystems/NetSDKAPI/Content/CodeExamples/Download-code-examples.htm</MoreInfo>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Premium" Version="[12.0,]" />
+    <InstallationTarget Id="Microsoft.VisualStudio.Ultimate" Version="[12.0,]" />
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[12.0,]" />
+  </Installation>
+  <Dependencies>
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.Sample" Path="CustomDesktop" ProgrammingLanguages="Visual C#" CategorizationPath="Qlik Sense SDK\CustomDesktop" SolutionPath="CustomDesktop.sln" DefaultName="QlikSenseSDK-CustomDesktop" />
+  </Assets>
+</PackageManifest>

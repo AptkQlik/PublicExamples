@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="AbstractStructure" Version="2.1" Language="en-US" Publisher="QlikTech International AB" />
+    <DisplayName>AbstractStructure</DisplayName>
+    <Description>This example illustrates how the abstract structure concept can be used to access and manipulate dynamic data in the Qlik Sense .Net SDK. In particular, the example illustrates how the methods “As” and “CloneAs” can be used to reinterpret AbstractStructure instances as being instances of user specified types.
+  </Description>
+    <License>disclaimer.txt</License>
+    <MoreInfo>http://help.qlik.com/sense/2.1/en-us/developer/#../Subsystems/NetSDKAPI/Content/CodeExamples/Download-code-examples.htm</MoreInfo>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Premium" Version="[12.0,]" />
+    <InstallationTarget Id="Microsoft.VisualStudio.Ultimate" Version="[12.0,]" />
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[12.0,]" />
+  </Installation>
+  <Dependencies>
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.Sample" Path="AbstractStructure" ProgrammingLanguages="Visual C#" CategorizationPath="Qlik Sense SDK\AbstractStructure" SolutionPath="AbstractStructure.sln" DefaultName="QlikSenseSDK-AbstractStructure" />
+  </Assets>
+</PackageManifest>

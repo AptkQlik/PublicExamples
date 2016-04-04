@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
+    <Default Extension="html" ContentType="text/html" /> 
+    <Default Extension="js" ContentType="application/octet-stream" /> 
+    <Default Extension="css" ContentType="application/octet-stream" /> 
+    <Default Extension="rtf" ContentType="application/rtf" /> 
+    <Default Extension="sln" ContentType="application/octet-stream" /> 
+    <Default Extension="suo" ContentType="application/octet-stream" /> 
+    <Default Extension="xml" ContentType="text/xml" /> 
+    <Default Extension="exe" ContentType="application/octet-stream" /> 
+    <Default Extension="pdb" ContentType="application/octet-stream" /> 
+    <Default Extension="manifest" ContentType="application/octet-stream" /> 
+    <Default Extension="csproj" ContentType="application/octet-stream" /> 
+    <Default Extension="cache" ContentType="application/octet-stream" /> 
+    <Default Extension="txt" ContentType="text/plain" /> 
+    <Default Extension="cs" ContentType="application/octet-stream" /> 
+    <Default Extension="config" ContentType="application/octet-stream" /> 
+    <Default Extension="vsixmanifest" ContentType="text/xml" /> 
+    <Default Extension="qvf" ContentType="text/xml" /> 
+    <Default Extension="resx" ContentType="text/xml" />
+    <Default Extension="settings" ContentType="text/xml" /> 
+</Types>
