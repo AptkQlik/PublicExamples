@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+<UsingTask TaskName="SetEnv" AssemblyName="Microsoft.Build.CppTasks.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
+  
+<PropertyGroup>
+    <Platform  Condition="'$(Platform)' == ''">AnyCPU</Platform>
+	<Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
+</PropertyGroup>
+
+<PropertyGroup Label="Package">
+    <PackageName>PublicExamples</PackageName>
+</PropertyGroup>
+
+<PropertyGroup Label="Constants">
+    <ComponentRootDir>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)\..'))\</ComponentRootDir>
+    <PackagesDir>$(ComponentRootDir)..\..\Packages\</PackagesDir>
+    <OutDir>$(PackagesDir)$(Configuration)\$(PackageName)\</OutDir>
+  </PropertyGroup>
+
+ <ItemGroup>
+    <ProjectFiles Include="AbstractStructure\AbstractStructure.csproj"></ProjectFiles>
+    <ProjectFiles Include="AppPreload\AppPreload.csproj"></ProjectFiles>
+	<ProjectFiles Include="AppTraverser\AppTraverser.csproj"></ProjectFiles>
+	<ProjectFiles Include="ConnectDesktop\ConnectDesktop\ConnectDesktop.csproj"></ProjectFiles>
+	<ProjectFiles Include="CustomDesktop\CustomDesktop.csproj"></ProjectFiles>
+  </ItemGroup>
+  
+
+
+ <Target Name="Build">
+    <MSBuild Projects="@(ProjectFiles)" Targets="Build" BuildInParallel="false" SkipNonexistentProjects="false" UnloadProjectsOnCompletion="true"
+      Properties="OutDir=$(OutDir);OutputPath=$(OutDir);Configuration=$(Configuration);Platform=$(Platform);Constants=$(Constants)" />
+  </Target>
+
+</Project>
+  
