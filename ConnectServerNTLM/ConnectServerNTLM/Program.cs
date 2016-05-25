@@ -2,24 +2,27 @@
 using Qlik.Engine;
 using Qlik.Engine.Communication;
 
-namespace ConnectDesktop
+namespace ConnectServerNTLM
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var uri = new Uri("http://127.0.0.1:4848");
+            var uri = new Uri("https://myQlikSenseServer.myDomain.com");
+
+            if (args.Length > 0)
+            {
+                uri = new Uri(args[0]);
+            }
             ILocation location = SetupConnection(uri);
             PrintQlikSenseVersionNumber(location);
         }
-
         private static ILocation SetupConnection(Uri uri)
         {
-            // Qlik Sense Desktop
             ILocation location = Qlik.Engine.Location.FromUri(uri);
 
-            // Defining the location as a direct connection to Qlik Sense Personal Edition
-            location.AsDirectConnectionToPersonalEdition();
+            // Defining the location as NTLM via proxy. Argument proxyUsesSsl defaults to true. Must be set to false if connection uses http
+            location.AsNtlmUserViaProxy(proxyUsesSsl:true);
             return location;
         }
 

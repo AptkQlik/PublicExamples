@@ -2,24 +2,27 @@
 using Qlik.Engine;
 using Qlik.Engine.Communication;
 
-namespace ConnectDesktop
+namespace ConnectServerStaticHeader
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var uri = new Uri("http://127.0.0.1:4848");
+            var uri = new Uri("https://myQlikSenseServer.myDomain.com");
             ILocation location = SetupConnection(uri);
             PrintQlikSenseVersionNumber(location);
         }
 
         private static ILocation SetupConnection(Uri uri)
         {
-            // Qlik Sense Desktop
             ILocation location = Qlik.Engine.Location.FromUri(uri);
 
-            // Defining the location as a direct connection to Qlik Sense Personal Edition
-            location.AsDirectConnectionToPersonalEdition();
+            // Set the prefix for the virtual proxy
+            location.VirtualProxyPath = "static";
+
+            // Defining the location as static header connection via proxy, headerUserId contains the user and headerAuthenticationHeaderName contains the session cookie header name.
+            location.AsStaticHeaderUserViaProxy(headerUserId: "myUser", headerAuthenticationHeaderName:"X-Qlik-HeaderAuth");
+
             return location;
         }
 

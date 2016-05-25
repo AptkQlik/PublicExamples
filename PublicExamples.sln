@@ -13,6 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectDesktop", "ConnectDe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomDesktop", "CustomDesktop\CustomDesktop.csproj", "{046D7F29-EB5A-47F9-9B49-9CBA27726544}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectServerNTLM", "ConnectServerNTLM\ConnectServerNTLM\ConnectServerNTLM.csproj", "{917E3247-8829-44BC-90DA-F5CD2667BE94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectServerStaticHeader", "ConnectServerStaticHeader\ConnectServerStaticHeader\ConnectServerStaticHeader.csproj", "{F8B97539-1769-418D-9C4E-34AF09BD3E97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectDirectLocalServer", "ConnectDirectLocalServer\ConnectDirectLocalServer\ConnectDirectLocalServer.csproj", "{28E4F7BC-61F9-47A1-80E1-55577BB7C3AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +45,18 @@ Global
 		{046D7F29-EB5A-47F9-9B49-9CBA27726544}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{046D7F29-EB5A-47F9-9B49-9CBA27726544}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{046D7F29-EB5A-47F9-9B49-9CBA27726544}.Release|Any CPU.Build.0 = Release|Any CPU
+		{917E3247-8829-44BC-90DA-F5CD2667BE94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{917E3247-8829-44BC-90DA-F5CD2667BE94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{917E3247-8829-44BC-90DA-F5CD2667BE94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{917E3247-8829-44BC-90DA-F5CD2667BE94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8B97539-1769-418D-9C4E-34AF09BD3E97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8B97539-1769-418D-9C4E-34AF09BD3E97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8B97539-1769-418D-9C4E-34AF09BD3E97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8B97539-1769-418D-9C4E-34AF09BD3E97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28E4F7BC-61F9-47A1-80E1-55577BB7C3AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28E4F7BC-61F9-47A1-80E1-55577BB7C3AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28E4F7BC-61F9-47A1-80E1-55577BB7C3AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28E4F7BC-61F9-47A1-80E1-55577BB7C3AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

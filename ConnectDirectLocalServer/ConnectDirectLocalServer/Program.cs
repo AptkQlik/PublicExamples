@@ -2,24 +2,27 @@
 using Qlik.Engine;
 using Qlik.Engine.Communication;
 
-namespace ConnectDesktop
+namespace ConnectDirectLocalServer
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var uri = new Uri("http://127.0.0.1:4848");
+            var uri = new Uri("https://myQlikSenseServer.myDomain.com");
             ILocation location = SetupConnection(uri);
             PrintQlikSenseVersionNumber(location);
         }
 
         private static ILocation SetupConnection(Uri uri)
         {
-            // Qlik Sense Desktop
+            // Qlik Sense Server on the local machine.
+            // Note 1. The adress to the host must be the same as the one given from the installation, this due to that the certificate has that computername.
+            // Note 2. The account executing this program must the same as the one running the Qlik Sense services.
             ILocation location = Qlik.Engine.Location.FromUri(uri);
 
-            // Defining the location as a direct connection to Qlik Sense Personal Edition
-            location.AsDirectConnectionToPersonalEdition();
+            // Defining the location as direct connection, userDirectory contains the name of the domain / user directory (AD), userId contains the user and extendedSecurityEnvironment defines if the an extended security environment (default is false)
+            location.AsDirectConnection(userDirectory: "myDomain", userId: "myUser", extendedSecurityEnvironment:false);
+
             return location;
         }
 
