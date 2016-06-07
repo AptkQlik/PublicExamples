@@ -8,7 +8,8 @@ namespace ConnectDirectLocalServer
     {
         static void Main(string[] args)
         {
-            var uri = new Uri("https://myQlikSenseServer.myDomain.com");
+            //the default portnumber is 4747 but can be customized
+            var uri = new Uri("https://myQlikSenseServer.myDomain.com:PORTNUMBER");
             ILocation location = SetupConnection(uri);
             PrintQlikSenseVersionNumber(location);
         }

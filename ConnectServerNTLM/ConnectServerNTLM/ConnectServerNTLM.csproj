@@ -35,39 +35,39 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
+      <HintPath>..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="BouncyCastle.CryptoExt, Version=1.7.4114.6378, Culture=neutral, PublicKeyToken=0e99375e54769942">
-      <HintPath>..\packages\QlikSense.NetSDK.2.2.3.0\lib\net452\BouncyCastle.CryptoExt.dll</HintPath>
+      <HintPath>..\..\packages\QlikSense.NetSDK.2.2.4.0\lib\net452\BouncyCastle.CryptoExt.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Qlik.Engine, Version=2.2.3.0, Culture=neutral, PublicKeyToken=1a848309662c81e5, processorArchitecture=MSIL">
-      <HintPath>..\packages\QlikSense.NetSDK.2.2.3.0\lib\net452\Qlik.Engine.dll</HintPath>
+    <Reference Include="Qlik.Engine, Version=2.2.4.0, Culture=neutral, PublicKeyToken=1a848309662c81e5, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\QlikSense.NetSDK.2.2.4.0\lib\net452\Qlik.Engine.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Qlik.Engine.Extensions, Version=2.2.3.0, Culture=neutral, PublicKeyToken=1a848309662c81e5, processorArchitecture=MSIL">
-      <HintPath>..\packages\QlikSense.NetSDK.2.2.3.0\lib\net452\Qlik.Engine.Extensions.dll</HintPath>
+    <Reference Include="Qlik.Engine.Extensions, Version=2.2.4.0, Culture=neutral, PublicKeyToken=1a848309662c81e5, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\QlikSense.NetSDK.2.2.4.0\lib\net452\Qlik.Engine.Extensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Qlik.Engine.Extensions.WinForms, Version=2.2.3.0, Culture=neutral, PublicKeyToken=1a848309662c81e5, processorArchitecture=MSIL">
-      <HintPath>..\packages\QlikSense.NetSDK.2.2.3.0\lib\net452\Qlik.Engine.Extensions.WinForms.dll</HintPath>
+    <Reference Include="Qlik.Engine.Extensions.WinForms, Version=2.2.4.0, Culture=neutral, PublicKeyToken=1a848309662c81e5, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\QlikSense.NetSDK.2.2.4.0\lib\net452\Qlik.Engine.Extensions.WinForms.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Qlik.Sense.Client, Version=2.2.3.0, Culture=neutral, PublicKeyToken=1a848309662c81e5, processorArchitecture=MSIL">
-      <HintPath>..\packages\QlikSense.NetSDK.2.2.3.0\lib\net452\Qlik.Sense.Client.dll</HintPath>
+    <Reference Include="Qlik.Sense.Client, Version=2.2.4.0, Culture=neutral, PublicKeyToken=1a848309662c81e5, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\QlikSense.NetSDK.2.2.4.0\lib\net452\Qlik.Sense.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Qlik.Sense.Communication, Version=2.2.3.0, Culture=neutral, PublicKeyToken=1a848309662c81e5, processorArchitecture=MSIL">
-      <HintPath>..\packages\QlikSense.NetSDK.2.2.3.0\lib\net452\Qlik.Sense.Communication.dll</HintPath>
+    <Reference Include="Qlik.Sense.Communication, Version=2.2.4.0, Culture=neutral, PublicKeyToken=1a848309662c81e5, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\QlikSense.NetSDK.2.2.4.0\lib\net452\Qlik.Sense.Communication.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Qlik.Sense.ExtendedFramework, Version=2.2.3.0, Culture=neutral, PublicKeyToken=1a848309662c81e5, processorArchitecture=MSIL">
-      <HintPath>..\packages\QlikSense.NetSDK.2.2.3.0\lib\net452\Qlik.Sense.ExtendedFramework.dll</HintPath>
+    <Reference Include="Qlik.Sense.ExtendedFramework, Version=2.2.4.0, Culture=neutral, PublicKeyToken=1a848309662c81e5, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\QlikSense.NetSDK.2.2.4.0\lib\net452\Qlik.Sense.ExtendedFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -86,6 +86,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -205,7 +205,7 @@ namespace AbstractStructure
 	        }
 	        catch (CommunicationErrorException e)
 	        {
-				Console.WriteLine("Communication error exception, no Qlik Sense instance found!");
+				Console.WriteLine("Communication error exception, no Qlik Sense instance found! " + e.Message);
 				return new IApp[] { };
 			}
         }

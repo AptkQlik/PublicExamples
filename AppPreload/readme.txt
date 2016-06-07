@@ -1,4 +1,4 @@
-﻿Qlik Sense .Net SDK 2.2.3.0
+﻿Qlik Sense .Net SDK 2.2.4.0
 =========================
 
 The Qlik Sense .NET SDK is a development toolbox for use with applications such as Microsoft� Visual Studio�. 
