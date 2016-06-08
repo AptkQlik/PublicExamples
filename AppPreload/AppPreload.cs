@@ -5,7 +5,7 @@
 //
 // The preload is performed by retrieving the layout of all visualization objects
 // in all apps, thereby triggering the engine to compute all values required to show the
-// objects. The engine will cache the results of the computations and keeps them in
+// objects. The engine caches the results of the computations and keeps them in
 // memory so that future, identical, queries will not have to be recomputed from scratch.
 //
 // The engine eventually purges the apps and all computation results from memory if the
@@ -48,7 +48,7 @@ namespace AppPreload
             Print("{0}: Number of objects - {1}, getting layouts", id.AppName, allObjects.Count());
 
             // Trigger the engine to execute all evaluations required to display all objects included in the app.
-            // The evaluation results are stored in memory so that subsequent identical queries don't need
+            // The evaluation results are stored in memory so that subsequent identical queries do not need
             // to be recomputed.
             var allLayoutTasks = allObjects.Select(o => o.GetLayoutAsync());
             Task.WaitAll(allLayoutTasks.ToArray<Task>());

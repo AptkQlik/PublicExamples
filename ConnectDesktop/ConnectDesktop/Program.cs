@@ -15,10 +15,10 @@ namespace ConnectDesktop
 
         private static ILocation SetupConnection(Uri uri)
         {
-            // Qlik Sense Desktop
+            // Qlik Sense Desktop.
             ILocation location = Qlik.Engine.Location.FromUri(uri);
 
-            // Defining the location as a direct connection to Qlik Sense Personal Edition
+            // Defines the location as a direct connection to Qlik Sense Personal Edition.
             location.AsDirectConnectionToPersonalEdition();
             return location;
         }

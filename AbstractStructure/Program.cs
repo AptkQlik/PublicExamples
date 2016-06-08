@@ -10,10 +10,10 @@ using Qlik.Sense.Client.Visualizations.MapComponents;
 namespace AbstractStructure
 {
     /// <summary>
-    /// This example illustrates the concept of abstract structures as used by the Qlik Sense SDK.
-    /// More information about the topic of abstract structures can be found on the developer help site at 
-    /// http://help.qlik.com, Building applications with the .NET SDK -> Working with Qlik Sense .NET SDK
-    /// -> Abstract structure.
+    /// This example illustrates how to use the abstractStructure class from the Qlik Sense .NET SDK.
+    /// You can find more information about abstract structures on the Qlik Sense Developers help site at  
+    /// http://help.qlik.com. Look for "Windows (.NET) applications" -> "Working with Qlik Sense .NET SDK"
+    /// -> "Abstract structure".
     /// </summary>
     class Program
     {
@@ -57,8 +57,7 @@ namespace AbstractStructure
             Console.WriteLine("Properties in object ab after modifying dynamic property \"s\" in a: {0}", String.Join(", ", ab.GetAllProperties()));
 
             // The dynamic property "s" written to "a" is the same as the one wrapped by the property S of
-            // class B. It can therefore be accessed through the property S when interpreting "a" as being of
-            // class B.
+            // class B. The dynamic property "s" can therefore be accessed through the property S when "a" is interpreted as of class B.
             Console.WriteLine("This is the text written to object interpreted as B: {0}", ab.S);
 
             // Changes to S in B will also immediately become visible for the dynamic property "s" for object "a".
@@ -89,25 +88,24 @@ namespace AbstractStructure
             }
         }
 
-        // Master objects are used when it is desirable to add the same object multiple times
-        // to the same app. A typical scenario would be that a certain visualization should be
+        // You use the masterObject class when you want to add the same object multiple times
+        // to the same app, for example when you need a certain visualization to be
         // available on multiple sheets.
         //
-        // Master objects have a dedicated type, but the properties for those object will depend
-        // on the type of the object that they are containers for. A master object created for a
-        // barchart will for instance have properties of a barchart, while a master object created
-        // for a line chart will have line chart properties. The type of the C# representation of
-        // master objects does therefore not represent directly the type of the properties associate
-        // with those objects.
+        // Master objects have a dedicated type, but the properties of master objects depend
+        // on the type of the objects they contain. A master object created for a
+        // bar chart, for instance, has the properties of a bar chart, while a master object created
+        // for a line chart has line chart properties. The type the masterObject class in C#
+        // therefore does not directly represent the type of the object it represents.
         //
-        // This example illustrates how the concept of abstract structure can be applied to interact
-        // with master object properties.
+        // This example illustrates how to use the AbstractStructure class to manipulate
+        // the properties of the MasterObject class.
         private static void UseAbstractStructureOnMasterObjects(IEnumerable<IApp> apps)
         {
             Console.WriteLine("****************************************************************");
             Console.WriteLine("** Part 2) Use of abstract structure to handle master objects.");
             Console.WriteLine("****************************************************************");
-            // Get all master objects for all apps and process them using abstract structure.
+            // Get all master objects for all apps and process them using abstract structures.
             var allMasterObjects = GetAllMasterObjects(apps);
             allMasterObjects.ToList().ForEach(ProcessMasterObject);
         }
@@ -165,7 +163,7 @@ namespace AbstractStructure
         /// <param name="hyperCubeDef">The hypercube definition to process.</param>
         private static void ProcessHyperCubeDef(IHyperCubeDef hyperCubeDef)
         {
-            // Process dimensions
+            // Process the dimensions.
             Console.WriteLine("  Number of dimensions: {0}", hyperCubeDef.Dimensions.Count());
             var dimensionCount = 0;
             foreach (var dimension in hyperCubeDef.Dimensions)
@@ -177,7 +175,7 @@ namespace AbstractStructure
                     Console.WriteLine("Inline dimension - {0}", dimension.Def.FieldDefs.First());
             }
 
-            // Process measures
+            // Process the measures.
             Console.WriteLine("  Number of measures: {0}", hyperCubeDef.Measures.Count());
             var measureCount = 0;
             foreach (var measure in hyperCubeDef.Measures)
@@ -220,20 +218,20 @@ namespace AbstractStructure
             return app.GetMasterObjectList().Items.Select(item => app.GetObject<MasterObject>(item.Info.Id));
         }
 
-        // The Map visualization of the Qlik.Sense.Client namespace has a concept of layers.
-        // A map layer contains at least one hypercube used to display information in that layer,
-        // which makes it possible to display multiple sets of information in the same map. A polygon
-        // layer can for instance color the polygons according to population density of countries, while
+        // The Map visualization of the Qlik.Sense.Client namespace has layers.
+        // A map layer contains at least one hypercube that is used to display information in that layer.
+        // This structure makes it possible to display multiple sets of information in the same map. A polygon
+        // layer, for instance, can color the polygons according to population density of countries, while
         // a point layer might have sizes related to the population size of cities.
         //
-        // This example illustrates how the concept of abstract structure can be applied to interact
+        // This example illustrates how you can use abstract structures to interact
         // with different types of map layers.
         private static void UseAbstractStructureOnMapLayers(IEnumerable<IApp> apps)
         {
             Console.WriteLine("************************************************************");
 			Console.WriteLine("** Part 3) Use of abstract structure to handle map layers.");
             Console.WriteLine("************************************************************");
-            // Get all map objects for all apps and process the layers using abstract structure.
+            // Get all map objects for all apps and process the layers using an AbstractStructure object.
             var allMaps = apps.SelectMany(GetAllMapObjects);
             allMaps.ToList().ForEach(ProcessMap);
         }

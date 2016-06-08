@@ -18,7 +18,7 @@ namespace AppTraverser
 
         private static ILocation GetQlikDesktopLocation()
         {
-            //Get location for Qlik Desktop on localhost
+            //Defines the location for Qlik Desktop on localhost. 
             var location = Location.FromUri(new Uri("ws://127.0.0.1:4848"));
             location.AsDirectConnectionToPersonalEdition();
             return location;

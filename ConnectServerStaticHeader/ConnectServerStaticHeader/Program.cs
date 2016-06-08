@@ -17,10 +17,10 @@ namespace ConnectServerStaticHeader
         {
             ILocation location = Qlik.Engine.Location.FromUri(uri);
 
-            // Set the prefix for the virtual proxy
+            // Set the prefix for the virtual proxy.
             location.VirtualProxyPath = "static";
 
-            // Defining the location as static header connection via proxy, headerUserId contains the user and headerAuthenticationHeaderName contains the session cookie header name.
+            // Defines the location as a static header connection via proxy. The headerUserId contains the user and headerAuthenticationHeaderName contains the session cookie header name.
             location.AsStaticHeaderUserViaProxy(headerUserId: "myUser", headerAuthenticationHeaderName:"X-Qlik-HeaderAuth");
 
             return location;

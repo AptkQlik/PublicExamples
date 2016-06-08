@@ -16,12 +16,12 @@ namespace ConnectDirectLocalServer
 
         private static ILocation SetupConnection(Uri uri)
         {
-            // Qlik Sense Server on the local machine.
-            // Note 1. The adress to the host must be the same as the one given from the installation, this due to that the certificate has that computername.
+            // Qlik Sense Server on a local machine.
+            // Note 1. The uri must match the host name that the server certificate was issued to when installing Qlik Sense. If not, the certificate validation will fail.
             // Note 2. The account executing this program must the same as the one running the Qlik Sense services.
             ILocation location = Qlik.Engine.Location.FromUri(uri);
 
-            // Defining the location as direct connection, userDirectory contains the name of the domain / user directory (AD), userId contains the user and extendedSecurityEnvironment defines if the an extended security environment (default is false)
+            // Defines the location as a direct connection. userDirectory contains the name of the domain / user directory (AD). userId contains the user. extendedSecurityEnvironment defines whether there is an extended security environment (default is false).
             location.AsDirectConnection(userDirectory: "myDomain", userId: "myUser", extendedSecurityEnvironment:false);
 
             return location;

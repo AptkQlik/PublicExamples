@@ -21,7 +21,7 @@ namespace ConnectServerNTLM
         {
             ILocation location = Qlik.Engine.Location.FromUri(uri);
 
-            // Defining the location as NTLM via proxy. Argument proxyUsesSsl defaults to true. Must be set to false if connection uses http
+            // Defines the location as NTLM via proxy. The default value for proxyUsesSsl is true. Must be set to false if the connection uses http.
             location.AsNtlmUserViaProxy(proxyUsesSsl:true);
             return location;
         }
