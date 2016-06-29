@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BBA86DC0-25F7-4A44-B788-689B0DD69004}</ProjectGuid>
+    <ProjectGuid>{9D32305F-82B0-499C-99EF-EB7442C3582E}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConnectDesktop</RootNamespace>
-    <AssemblyName>ConnectDesktop</AssemblyName>
+    <RootNamespace>ConnectServerTicketAttach</RootNamespace>
+    <AssemblyName>ConnectServerTicketAttach</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -34,35 +34,35 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="BouncyCastle.CryptoExt, Version=1.7.4114.6378, Culture=neutral, PublicKeyToken=0e99375e54769942">
-      <HintPath>..\..\packages\QlikSense.NetSDK.3.0.0.0\lib\net452\BouncyCastle.CryptoExt.dll</HintPath>
+      <HintPath>..\packages\QlikSense.NetSDK.3.0.0.0\lib\net452\BouncyCastle.CryptoExt.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Qlik.Engine, Version=3.0.0.0, Culture=neutral, PublicKeyToken=1a848309662c81e5, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\QlikSense.NetSDK.3.0.0.0\lib\net452\Qlik.Engine.dll</HintPath>
+      <HintPath>..\packages\QlikSense.NetSDK.3.0.0.0\lib\net452\Qlik.Engine.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Qlik.Engine.Extensions, Version=3.0.0.0, Culture=neutral, PublicKeyToken=1a848309662c81e5, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\QlikSense.NetSDK.3.0.0.0\lib\net452\Qlik.Engine.Extensions.dll</HintPath>
+      <HintPath>..\packages\QlikSense.NetSDK.3.0.0.0\lib\net452\Qlik.Engine.Extensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Qlik.Engine.Extensions.WinForms, Version=3.0.0.0, Culture=neutral, PublicKeyToken=1a848309662c81e5, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\QlikSense.NetSDK.3.0.0.0\lib\net452\Qlik.Engine.Extensions.WinForms.dll</HintPath>
+      <HintPath>..\packages\QlikSense.NetSDK.3.0.0.0\lib\net452\Qlik.Engine.Extensions.WinForms.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Qlik.Sense.Client, Version=3.0.0.0, Culture=neutral, PublicKeyToken=1a848309662c81e5, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\QlikSense.NetSDK.3.0.0.0\lib\net452\Qlik.Sense.Client.dll</HintPath>
+      <HintPath>..\packages\QlikSense.NetSDK.3.0.0.0\lib\net452\Qlik.Sense.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Qlik.Sense.Communication, Version=3.0.0.0, Culture=neutral, PublicKeyToken=1a848309662c81e5, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\QlikSense.NetSDK.3.0.0.0\lib\net452\Qlik.Sense.Communication.dll</HintPath>
+      <HintPath>..\packages\QlikSense.NetSDK.3.0.0.0\lib\net452\Qlik.Sense.Communication.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />

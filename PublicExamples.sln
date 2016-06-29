@@ -19,6 +19,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectServerStaticHeader",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectDirectLocalServer", "ConnectDirectLocalServer\ConnectDirectLocalServer\ConnectDirectLocalServer.csproj", "{28E4F7BC-61F9-47A1-80E1-55577BB7C3AA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectDirectRemoteServer", "ConnectDirectRemoteServer\ConnectDirectRemoteServer.csproj", "{F10596CD-9C37-40C5-BD52-00306268CC9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectServerAnonymousUser", "ConnectServerAnonymousUser\ConnectServerAnonymousUser.csproj", "{942630A6-263E-45F3-9EBD-86102D655812}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectServerTicketAttach", "ConnectServerTicketAttach\ConnectServerTicketAttach.csproj", "{9D32305F-82B0-499C-99EF-EB7442C3582E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +63,18 @@ Global
 		{28E4F7BC-61F9-47A1-80E1-55577BB7C3AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28E4F7BC-61F9-47A1-80E1-55577BB7C3AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28E4F7BC-61F9-47A1-80E1-55577BB7C3AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F10596CD-9C37-40C5-BD52-00306268CC9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F10596CD-9C37-40C5-BD52-00306268CC9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F10596CD-9C37-40C5-BD52-00306268CC9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F10596CD-9C37-40C5-BD52-00306268CC9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{942630A6-263E-45F3-9EBD-86102D655812}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{942630A6-263E-45F3-9EBD-86102D655812}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{942630A6-263E-45F3-9EBD-86102D655812}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{942630A6-263E-45F3-9EBD-86102D655812}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D32305F-82B0-499C-99EF-EB7442C3582E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D32305F-82B0-499C-99EF-EB7442C3582E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D32305F-82B0-499C-99EF-EB7442C3582E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D32305F-82B0-499C-99EF-EB7442C3582E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
