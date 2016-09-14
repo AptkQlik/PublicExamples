@@ -29,14 +29,13 @@ namespace DataStorytelling
                 var appIdentifier = location.AppWithNameOrDefault(@"Beginner's tutorial", noVersionCheck: true);
                 using (var app = location.App(appIdentifier, noVersionCheck: true))
                 {
-                    //9.1 Taking snapshots
-                    // Get the Dashbord sheet
-                    // Clear all selection to set the app in en known state
+                    // Clear all selections to set the app in an known state
                     app.ClearAll();
 
                     // Get the sheet with the title "Dashboard"
                     var sheet = GetSheetWithTitle(app, "Dashboard");
 
+                    //Take snapshots
                     ISnapshot nordicTop5Customers;
                     ISnapshot nordicQuarterlyTrend;
                     ISnapshot usaTop5Customers;
@@ -45,17 +44,16 @@ namespace DataStorytelling
                     ISnapshot japanQuarterlyTrend;
                     TakeSnapshots(sheet, app, out nordicTop5Customers, out nordicQuarterlyTrend, out usaTop5Customers, out usaQuarterlyTrend, out japanTop5Customers, out japanQuarterlyTrend);
 
-                    //9.2 Createing a simple story
-                    // 1 Create a new story
+                    // Create a new story
                     var storyProps = new StoryProperties();
-                    // 2 Enter the title
+                    // Enter the title
                     storyProps.MetaDef.Title = "SDK Creted - Three largest regions";
                     var story = app.CreateStory("ThreelargestregionsStory", storyProps);
                     // Create a slide
                     var slideProps = new SlideProperties();
                     var slide1 = story.CreateSlide("ThreelargestregionsSlide", slideProps);
 
-                    // 4 Add a title
+                    // Add a title
                     var titleProp = slide1.CreateTextSlideItemProperties("ThreelargestregionsSlideTitle", Slide.TextType.Title, text: "Three largest regions");
                     titleProp.Position = new SlidePosition
                     {
@@ -67,8 +65,8 @@ namespace DataStorytelling
                     };
                     slide1.CreateSlideItem(null, titleProp);
 
-                    // 7 Add the Sales per Region snapshot to the slide
-                    // 8 Resize (SDK set the size)
+                    // Add the Sales per Region snapshot to the slide
+                    // Resize (The .NET SDK sets the size)
                     AddSnapshotToSlide(slide1, "ThreelargestregionsSlideUsa", "SDK_SalesPerRegion", "Usa", "1%");
                     AddSnapshotToSlide(slide1, "ThreelargestregionsSlideNordic", "SDK_SalesPerRegion", "Nordic", "34%");
                     AddSnapshotToSlide(slide1, "ThreelargestregionsSlideJapan", "SDK_SalesPerRegion", "Japan", "67%");
@@ -82,9 +80,9 @@ namespace DataStorytelling
                     var slide4 = story.CreateSlide("JapanSlide", slideProps);
                     CreateRegionItemsOnSlide(slide4, "Japan", japanTop5Customers, japanQuarterlyTrend);
                     
-                    // Just in clase lets clear all selections.
+                    // Clear all selections.
                     app.ClearAll();
-                    // Save our new story and snaphots
+                    // Save the new story and the snaphots
                     app.DoSave();
                     Console.WriteLine(@"A new story by the name 'SDK Created - Tree largest regions' has been created. Open 'Beginner's tutorial' and verify your new story.");
                 }
