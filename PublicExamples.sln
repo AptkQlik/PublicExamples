@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractStructure", "AbstractStructure\AbstractStructure.csproj", "{25BEE9B7-4244-4ED6-9935-361CF17D0880}"
 EndProject
@@ -10,8 +10,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTraverser", "AppTraverser\AppTraverser.csproj", "{A3571185-F8E2-4B1D-B310-3A4C6F58414F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectDesktop", "ConnectDesktop\ConnectDesktop\ConnectDesktop.csproj", "{BBA86DC0-25F7-4A44-B788-689B0DD69004}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomDesktop", "CustomDesktop\CustomDesktop.csproj", "{046D7F29-EB5A-47F9-9B49-9CBA27726544}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectServerNTLM", "ConnectServerNTLM\ConnectServerNTLM\ConnectServerNTLM.csproj", "{917E3247-8829-44BC-90DA-F5CD2667BE94}"
 EndProject
@@ -47,10 +45,6 @@ Global
 		{BBA86DC0-25F7-4A44-B788-689B0DD69004}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBA86DC0-25F7-4A44-B788-689B0DD69004}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBA86DC0-25F7-4A44-B788-689B0DD69004}.Release|Any CPU.Build.0 = Release|Any CPU
-		{046D7F29-EB5A-47F9-9B49-9CBA27726544}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{046D7F29-EB5A-47F9-9B49-9CBA27726544}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{046D7F29-EB5A-47F9-9B49-9CBA27726544}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{046D7F29-EB5A-47F9-9B49-9CBA27726544}.Release|Any CPU.Build.0 = Release|Any CPU
 		{917E3247-8829-44BC-90DA-F5CD2667BE94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{917E3247-8829-44BC-90DA-F5CD2667BE94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{917E3247-8829-44BC-90DA-F5CD2667BE94}.Release|Any CPU.ActiveCfg = Release|Any CPU
