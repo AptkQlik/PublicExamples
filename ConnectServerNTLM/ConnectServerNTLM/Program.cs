@@ -32,7 +32,7 @@ namespace ConnectServerNTLM
             {
                 using (IHub hub = location.Hub(noVersionCheck: true))
                 {
-                    Console.WriteLine(hub.ProductVersion());
+                    Console.WriteLine(hub.EngineVersion().ComponentVersion);
                 }
             }
             catch (CommunicationErrorException cex)
