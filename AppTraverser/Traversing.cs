@@ -76,26 +76,24 @@ namespace AppTraverser
                 TextHelper.WriteLine(4, "MasterObject version " + masterObject.Properties.MasterVersion);
             }
 
-            // The information to print for each object depends on the type of the object. The TypeSwitch class can be used
-            // for this purpose. For extensions of master objects, property values will automatically be retrieved from the
-            // master object.
-            TypeSwitch.Do(genericObject,
-                TypeSwitch.Case<Table>(o => TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app)),
-                TypeSwitch.Case<Barchart>(o => TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app)),
-                TypeSwitch.Case<Linechart>(o => TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app)),
-                TypeSwitch.Case<Piechart>(o => TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app)),
-                TypeSwitch.Case<Scatterplot>(o => TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app)),
-                TypeSwitch.Case<Treemap>(o => TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app)),
-                TypeSwitch.Case<Gauge>(o => TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app)),
-                TypeSwitch.Case<Combochart>(o => TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app)),
-                TypeSwitch.Case<TextImage>(o => TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app)),
-                TypeSwitch.Case<Listbox>(o => TextHelper.Print(o.GetType().Name, o.Title)),
-                TypeSwitch.Case<Filterpane>(o => TextHelper.Print(o.GetType().Name, o.Title)),
-                TypeSwitch.Case<Kpi>(o => TextHelper.Print(o.GetType().Name, o.Title)),
-                TypeSwitch.Case<Pivottable>(o => TextHelper.Print(o.GetType().Name, o.Title)),
-                TypeSwitch.Case<Map>(o => TextHelper.Print(o.GetType().Name, o.Title)),
-                TypeSwitch.Default(() => TextHelper.WriteLine(4, "Unknown type: " + genericObject.GetType().FullName))
-                );
+            switch (genericObject)
+            {
+                case Table o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app); break;
+                case Barchart o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app); break;
+                case Linechart o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app); break;
+                case Piechart o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app); break;
+                case Scatterplot o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app); break;
+                case Treemap o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app); break;
+                case Gauge o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app); break;
+                case Combochart o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app); break;
+                case TextImage o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app); break;
+                case Listbox o: TextHelper.Print(o.GetType().Name, o.Title); break;
+                case Filterpane o: TextHelper.Print(o.GetType().Name, o.Title); break;
+                case Kpi o: TextHelper.Print(o.GetType().Name, o.Title); break;
+                case Pivottable o: TextHelper.Print(o.GetType().Name, o.Title); break;
+                case Map o: TextHelper.Print(o.GetType().Name, o.Title); break;
+                default: TextHelper.WriteLine(4, "Unknown type: " + genericObject.GetType().FullName); break;
+            }
         }
     }
 }

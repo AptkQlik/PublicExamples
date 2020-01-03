@@ -31,7 +31,7 @@ namespace ConnectDirectLocalServer
         {
             try
             {
-                using (IHub hub = location.Hub(noVersionCheck: true))
+                using (IHub hub = location.Hub())
                 {
                     Console.WriteLine(hub.EngineVersion().ComponentVersion);
                 }

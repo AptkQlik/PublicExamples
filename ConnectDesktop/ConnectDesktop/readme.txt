@@ -9,6 +9,8 @@ or modifying Qlik Sense apps in many different ways or for using Qlik Sense as a
 
 Applications, in which the Qlik Sense .NET SDK library is embedded, can be written in any .net language.
 
+The .NET Core support provided by this package is experimental only.
+
 To see the full END USER LICENSE AGREEMENT see separate file.
 
 
