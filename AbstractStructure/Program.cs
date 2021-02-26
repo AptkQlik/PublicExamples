@@ -38,12 +38,32 @@ namespace AbstractStructure
             Console.WriteLine("******************************************");
             Console.WriteLine("** Part 1) Basic abstract structure usage");
             Console.WriteLine("******************************************");
-            // Create new instances of the classes A and B.
-            var a = new A {N = 1};
+            // Create a new AbstractStructure instance.
+            var abs = new Qlik.Engine.AbstractStructure();
+
+            // The methods Set and Get are the basic building blocks for accessing information in an
+            // AbstractStructure instance.
+            abs.Set("n", 1);
+            // To retrieve a value using Get, you must specify what type to deserialize the value to.
+            var n = abs.Get<int>("n");
+            Console.WriteLine("The value of \"n\" in abs is: " + n);
+
+            // An AbstractStructure instance is a wrapper for a JSON structure.
+            Console.WriteLine("The JSON structure of abs is: " + abs.PrintStructure());
+            
+            // To avoid explicitly stating the type for each property access, a wrapper class can be used.
+            // The class A is a wrapper for an AbstractStructure containing an integer property named "n".
+            // You can choose to interpret an AbstractStructure as a particular wrapper class by using the method "As".
+            // Reinterpret the "abs" object as an instance of class A:
+            var a = abs.As<A>();
+            // The property "n" can now be accessed through the property P.N:
+            Console.WriteLine("The value of \"n\" in abs interpreted as A: " + a.N);
+
+            // Create a new instance of the class B.
             var b = new B {S = "Hello"};
             // Print the names of all properties found in the two objects.
-            Console.WriteLine("Properties in object a: {0}", String.Join(", ", a.GetAllProperties()));
-            Console.WriteLine("Properties in object b: {0}", String.Join(", ", b.GetAllProperties()));
+            Console.WriteLine("Properties in object a: {0}", string.Join(", ", a.GetAllProperties()));
+            Console.WriteLine("Properties in object b: {0}", string.Join(", ", b.GetAllProperties()));
 
             // Interpret "a" as being of class B.
             var ab = a.As<B>();
@@ -51,12 +71,12 @@ namespace AbstractStructure
             // Print the names of all properties found in object "ab". Notice that the property "n" is visible in
             // "ab" even though it is not of type A. "n" is available as a dynamic property in "ab". Notice also
             // that "ab" does not contain a property called "s". Accessing S at this point will simply return null.
-            Console.WriteLine("Properties in object ab: {0}", String.Join(", ", ab.GetAllProperties()));
+            Console.WriteLine("Properties in object ab: {0}", string.Join(", ", ab.GetAllProperties()));
 
             // Add a dynamic property to "a". The property immediately becomes visible in "ab".
             a.Set("s", "Hello from A");
             Console.WriteLine("Properties in object ab after modifying dynamic property \"s\" in a: {0}",
-            String.Join(", ", ab.GetAllProperties()));
+            string.Join(", ", ab.GetAllProperties()));
 
             // The dynamic property "s" written to "a" is the same as the one wrapped by the property S of
             // class B. The dynamic property "s" can therefore be accessed through the property S when "a" is interpreted as of class B.
@@ -71,11 +91,12 @@ namespace AbstractStructure
         // A class containing a number.
         class A : Qlik.Engine.AbstractStructure
         {
-            // Wrapper for a dynamic property named "n".
+            // Wrapper for a dynamic property named "n". The purpose of the wrapper is to provide
+            // a typed layer for accessing the AbstractStructure properties.
             public int N
             {
-                get { return Get<int>("n"); }
-                set { Set("n", value); }
+                get => Get<int>("n");
+                set => Set("n", value);
             }
         }
 
@@ -201,7 +222,7 @@ namespace AbstractStructure
         {
             try
             {
-                return location.GetAppIdentifiers().Select(x => location.App(x));
+                return location.GetAppIdentifiers().Take(3).Select(x => location.App(x, noData: true));
             }
             catch (CommunicationErrorException e)
             {
@@ -235,8 +256,11 @@ namespace AbstractStructure
             Console.WriteLine("** Part 3) Use of abstract structure to handle map layers.");
             Console.WriteLine("************************************************************");
             // Get all map objects for all apps and process the layers using an AbstractStructure object.
-            var allMaps = apps.SelectMany(GetAllMapObjects);
-            allMaps.ToList().ForEach(ProcessMap);
+            var allMaps = apps.SelectMany(GetAllMapObjects).ToList();
+            if (allMaps.Any())
+                allMaps.ForEach(ProcessMap);
+            else
+                Console.WriteLine("No maps found in the set of opened apps.");
         }
 
         private static IEnumerable<IMap> GetAllMapObjects(IApp app)
