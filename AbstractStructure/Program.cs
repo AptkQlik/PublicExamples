@@ -23,13 +23,14 @@ namespace AbstractStructure
 
             var location = ConnectToDesktop();
             var allApps = OpenAllApps(location).ToArray();
-	        if (allApps.Any())
-	        {
-				UseAbstractStructureOnMasterObjects(allApps);
-				UseAbstractStructureOnMapLayers(allApps);
-			}
-			Console.WriteLine("Press enter to close.");
-			Console.ReadLine();
+            if (allApps.Any())
+            {
+                UseAbstractStructureOnMasterObjects(allApps);
+                UseAbstractStructureOnMapLayers(allApps);
+            }
+
+            Console.WriteLine("Press enter to close.");
+            Console.ReadLine();
         }
 
         private static void BasicAbstractStructureUsage()
@@ -38,11 +39,11 @@ namespace AbstractStructure
             Console.WriteLine("** Part 1) Basic abstract structure usage");
             Console.WriteLine("******************************************");
             // Create new instances of the classes A and B.
-			var a = new A { N = 1 };
-			var b = new B { S = "Hello" };
-			// Print the names of all properties found in the two objects.
-			Console.WriteLine("Properties in object a: {0}", String.Join(", ", a.GetAllProperties()));
-			Console.WriteLine("Properties in object b: {0}", String.Join(", ", b.GetAllProperties()));
+            var a = new A {N = 1};
+            var b = new B {S = "Hello"};
+            // Print the names of all properties found in the two objects.
+            Console.WriteLine("Properties in object a: {0}", String.Join(", ", a.GetAllProperties()));
+            Console.WriteLine("Properties in object b: {0}", String.Join(", ", b.GetAllProperties()));
 
             // Interpret "a" as being of class B.
             var ab = a.As<B>();
@@ -51,10 +52,11 @@ namespace AbstractStructure
             // "ab" even though it is not of type A. "n" is available as a dynamic property in "ab". Notice also
             // that "ab" does not contain a property called "s". Accessing S at this point will simply return null.
             Console.WriteLine("Properties in object ab: {0}", String.Join(", ", ab.GetAllProperties()));
-            
+
             // Add a dynamic property to "a". The property immediately becomes visible in "ab".
             a.Set("s", "Hello from A");
-            Console.WriteLine("Properties in object ab after modifying dynamic property \"s\" in a: {0}", String.Join(", ", ab.GetAllProperties()));
+            Console.WriteLine("Properties in object ab after modifying dynamic property \"s\" in a: {0}",
+            String.Join(", ", ab.GetAllProperties()));
 
             // The dynamic property "s" written to "a" is the same as the one wrapped by the property S of
             // class B. The dynamic property "s" can therefore be accessed through the property S when "a" is interpreted as of class B.
@@ -63,7 +65,7 @@ namespace AbstractStructure
             // Changes to S in B will also immediately become visible for the dynamic property "s" for object "a".
             ab.S = "Hello from B";
             Console.WriteLine("This is the text written to property S for class B: {0}", ab.S);
-            Console.WriteLine("This is the same text accessed through dynamic property \"s\" for class A: {0}", a.Get<string>("s"));
+            Console.WriteLine("This is the same text accessed through dynamic property \"s\" for class A: {0}",  a.Get<string>("s"));
         }
 
         // A class containing a number.
@@ -131,8 +133,7 @@ namespace AbstractStructure
                     Console.WriteLine("  BarGrouping is set to: " + barGrouping);
                 }
                 else
-                    Console.WriteLine("Master object with id {0} is not a bar chart. It is a {1}.", properties.Info.Id,
-                        visualizationBaseProperties.Visualization);
+                    Console.WriteLine("Master object with id {0} is not a bar chart. It is a {1}.", properties.Info.Id, visualizationBaseProperties.Visualization);
 
                 // Print the title of the master object.
                 Console.WriteLine("  Title is: \"{0}\"", visualizationBaseProperties.Title);
@@ -149,12 +150,13 @@ namespace AbstractStructure
             else
                 Console.WriteLine("  Object has no hypercube.");
         }
-        
+
         // A class that contains a hypercube definition.
         class HyperCubeContainer : Qlik.Engine.AbstractStructure
         {
-            public IHyperCubeDef HyperCubeDef { get { return Get<HyperCubeDef>("qHyperCubeDef"); } }
-            public bool ContainsHyperCube { get { return HyperCubeDef != null; } }
+            public IHyperCubeDef HyperCubeDef => Get<HyperCubeDef>("qHyperCubeDef");
+
+            public bool ContainsHyperCube => IsSet("qHyperCubeDef");
         }
 
         /// <summary>
@@ -197,15 +199,15 @@ namespace AbstractStructure
 
         private static IEnumerable<IApp> OpenAllApps(ILocation location)
         {
-	        try
-	        {
-				return location.GetAppIdentifiers().Select(x => location.App(x));
-	        }
-	        catch (CommunicationErrorException e)
-	        {
-				Console.WriteLine("Communication error exception, no Qlik Sense instance found! " + e.Message);
-				return new IApp[] { };
-			}
+            try
+            {
+                return location.GetAppIdentifiers().Select(x => location.App(x));
+            }
+            catch (CommunicationErrorException e)
+            {
+                Console.WriteLine("Communication error exception, no Qlik Sense instance found! " + e.Message);
+                return new IApp[] { };
+            }
         }
 
         private static IEnumerable<IMasterObject> GetAllMasterObjects(IEnumerable<IApp> apps)
@@ -215,7 +217,8 @@ namespace AbstractStructure
 
         private static IEnumerable<IMasterObject> GetAllMasterObjects(IApp app)
         {
-            return app.GetMasterObjectList().Layout.AppObjectList.Items.Select(item => app.GetObject<MasterObject>(item.Info.Id));
+            return app.GetMasterObjectList().Layout.AppObjectList.Items
+                .Select(item => app.GetObject<MasterObject>(item.Info.Id));
         }
 
         // The Map visualization of the Qlik.Sense.Client namespace has layers.
@@ -229,7 +232,7 @@ namespace AbstractStructure
         private static void UseAbstractStructureOnMapLayers(IEnumerable<IApp> apps)
         {
             Console.WriteLine("************************************************************");
-			Console.WriteLine("** Part 3) Use of abstract structure to handle map layers.");
+            Console.WriteLine("** Part 3) Use of abstract structure to handle map layers.");
             Console.WriteLine("************************************************************");
             // Get all map objects for all apps and process the layers using an AbstractStructure object.
             var allMaps = apps.SelectMany(GetAllMapObjects);
@@ -238,10 +241,10 @@ namespace AbstractStructure
 
         private static IEnumerable<IMap> GetAllMapObjects(IApp app)
         {
-            return app.GetSheets().
-                SelectMany(sheet => sheet.GetChildInfos()).
-                Select(info => app.GetObject<GenericObject>(info.Id)).
-                OfType<Map>();
+            return app.GetSheets()
+                .SelectMany(sheet => sheet.GetChildInfos())
+                .Select(info => app.GetObject<GenericObject>(info.Id))
+                .OfType<Map>();
         }
 
         private static void ProcessMap(IMap map)
@@ -251,7 +254,7 @@ namespace AbstractStructure
             var layerCount = 0;
             foreach (var layer in map.Properties.Layers)
             {
-                Console.WriteLine(  "Layer #{0} is of type {1}", layerCount++, layer.Type);
+                Console.WriteLine("Layer #{0} is of type {1}", layerCount++, layer.Type);
                 switch (layer.Type)
                 {
                     case LayerType.Point:
