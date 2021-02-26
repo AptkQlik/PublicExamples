@@ -215,7 +215,7 @@ namespace AbstractStructure
 
         private static IEnumerable<IMasterObject> GetAllMasterObjects(IApp app)
         {
-            return app.GetMasterObjectList().Items.Select(item => app.GetObject<MasterObject>(item.Info.Id));
+            return app.GetMasterObjectList().Layout.AppObjectList.Items.Select(item => app.GetObject<MasterObject>(item.Info.Id));
         }
 
         // The Map visualization of the Qlik.Sense.Client namespace has layers.
@@ -246,8 +246,8 @@ namespace AbstractStructure
 
         private static void ProcessMap(IMap map)
         {
-            Console.WriteLine("Processing map with id {0}, and title \"{1}\"", map.Info.Id, map.Title);
-            Console.WriteLine("  The map has {0} layers.", map.Layers.Count());
+            Console.WriteLine("Processing map with id {0}, and title \"{1}\"", map.Layout.Info.Id, map.Layout.Title);
+            Console.WriteLine("  The map has {0} layers.", map.Layout.Layers.Count());
             var layerCount = 0;
             foreach (var layer in map.Properties.Layers)
             {

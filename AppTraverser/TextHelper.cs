@@ -38,7 +38,7 @@ namespace AppTraverser
             if (String.IsNullOrWhiteSpace(measure.LibraryId))
                 return measure.Def.Def;
 
-            var meas = app.GetMeasure(measure.LibraryId);
+            var meas = app.GetGenericMeasure(measure.LibraryId);
 
             return meas.Properties.Measure.Def;
         }
@@ -62,7 +62,7 @@ namespace AppTraverser
             if (String.IsNullOrWhiteSpace(dimension.LibraryId))
                 return dimension.Def.FieldDefs;
 
-            var dim = app.GetDimension(dimension.LibraryId);
+            var dim = app.GetGenericDimension(dimension.LibraryId);
 
             return dim.Properties.Dim.FieldDefs;
         }

@@ -38,7 +38,7 @@ namespace ConnectDirectRemoteServer
                 // Defining the location as a direct connection to Qlik Sense Server
                 location.AsDirectConnection("domain", "user", certificateCollection: certificateCollection);
 
-                using (IHub hub = location.Hub(noVersionCheck: true))
+                using (IHub hub = location.Hub())
                 {
                     Console.WriteLine(hub.EngineVersion().ComponentVersion);
                 }

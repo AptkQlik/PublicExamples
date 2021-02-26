@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using Qlik.Engine;
-using Qlik.Engine.Extensions;
 using Qlik.Sense.Client;
 using Qlik.Sense.Client.Visualizations;
 
@@ -33,16 +32,16 @@ namespace AppTraverser
 
         private static void Traverse(ISheet sheet, IApp app)
         {
-            // Print information from the layout of the sheet. Layout properties are accessable
+            // Print information from the layout of the sheet. Layout properties are accessible
             // directly from the object.
-            TextHelper.WriteLine(2, "Rank: " + sheet.Rank);
+            TextHelper.WriteLine(2, "Rank: " + sheet.Layout.Rank);
 
-            if (sheet.Cells == null) return;
+            if (sheet.Layout.Cells == null) return;
 
-            TextHelper.WriteLine(2, "# Elements: " + sheet.Cells.Count());
+            TextHelper.WriteLine(2, "# Elements: " + sheet.Layout.Cells.Count());
 
             // Traverse all cells of the sheet.
-            foreach (var cell in sheet.Cells)
+            foreach (var cell in sheet.Layout.Cells)
             {
                 Traverse(cell, app);
             }
@@ -78,20 +77,20 @@ namespace AppTraverser
 
             switch (genericObject)
             {
-                case Table o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app); break;
-                case Barchart o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app); break;
-                case Linechart o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app); break;
-                case Piechart o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app); break;
-                case Scatterplot o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app); break;
-                case Treemap o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app); break;
-                case Gauge o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app); break;
-                case Combochart o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app); break;
-                case TextImage o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Title, app); break;
-                case Listbox o: TextHelper.Print(o.GetType().Name, o.Title); break;
-                case Filterpane o: TextHelper.Print(o.GetType().Name, o.Title); break;
-                case Kpi o: TextHelper.Print(o.GetType().Name, o.Title); break;
-                case Pivottable o: TextHelper.Print(o.GetType().Name, o.Title); break;
-                case Map o: TextHelper.Print(o.GetType().Name, o.Title); break;
+                case Table o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Layout.Title, app); break;
+                case Barchart o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Layout.Title, app); break;
+                case Linechart o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Layout.Title, app); break;
+                case Piechart o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Layout.Title, app); break;
+                case Scatterplot o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Layout.Title, app); break;
+                case Treemap o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Layout.Title, app); break;
+                case Gauge o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Layout.Title, app); break;
+                case Combochart o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Layout.Title, app); break;
+                case TextImage o: TextHelper.Print(o.GetType().Name, o.Properties.HyperCubeDef, o.Layout.Title, app); break;
+                case Listbox o: TextHelper.Print(o.GetType().Name, o.Layout.Title); break;
+                case Filterpane o: TextHelper.Print(o.GetType().Name, o.Layout.Title); break;
+                case Kpi o: TextHelper.Print(o.GetType().Name, o.Layout.Title); break;
+                case Pivottable o: TextHelper.Print(o.GetType().Name, o.Layout.Title); break;
+                case Map o: TextHelper.Print(o.GetType().Name, o.Layout.Title); break;
                 default: TextHelper.WriteLine(4, "Unknown type: " + genericObject.GetType().FullName); break;
             }
         }
