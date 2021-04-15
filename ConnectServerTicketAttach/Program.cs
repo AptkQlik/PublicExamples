@@ -10,22 +10,20 @@ namespace ConnectServerTicketAttach
 {
     class Program
     {
-        private static Uri _qlikSenseServerUri;
-
         static void Main(string[] args)
         {
-            // Uri to Qlik Sense Server can be given by command-line or use a default value.
-            if (args.Length > 0)
-                _qlikSenseServerUri = new Uri(args[0]);
-            else
-                _qlikSenseServerUri = new Uri("https://server.domain.com");
+            var uri = new Uri("https://myQlikSenseServer.myDomain.com");
 
             // Extract session cookie
-            var sessionCookie = ExtractTicketFromCookies();
+            var sessionCookie = ExtractTicketFromCookies(uri);
 
-            ILocation location = SetupConnection(sessionCookie);
+            var location = Location.FromUri(uri);
+            location.AsExistingSessionViaProxy(sessionCookie.Value, sessionCookie.Name);
 
-            PrintQlikSenseVersionNumber(location);
+            using (IHub hub = location.Hub())
+            {
+                Console.WriteLine(hub.EngineVersion().ComponentVersion);
+            }
         }
 
         /// <summary>
@@ -34,7 +32,7 @@ namespace ConnectServerTicketAttach
         /// uri and extracts the session id 'X-Qlik-Session' from the response cookies
         /// </summary>
         /// <returns>session cookie</returns>
-        private static Cookie ExtractTicketFromCookies()
+        private static Cookie ExtractTicketFromCookies(Uri uri)
         {
             CookieContainer cookieContainer = new CookieContainer();
             var connectionHandler = new HttpClientHandler
@@ -47,41 +45,11 @@ namespace ConnectServerTicketAttach
             connection.DefaultRequestHeaders.Add("X-Qlik-xrfkey", "ABCDEFG123456789");
             connection.DefaultRequestHeaders.Add("User-Agent", "Windows");
 
-            connection.GetAsync(_qlikSenseServerUri).Wait();
+            connection.GetAsync(uri).Wait();
 
-            IEnumerable<Cookie> responseCookies = cookieContainer.GetCookies(_qlikSenseServerUri).Cast<Cookie>();
+            IEnumerable<Cookie> responseCookies = cookieContainer.GetCookies(uri).Cast<Cookie>();
 
             return responseCookies.First(cookie => cookie.Name.Equals("X-Qlik-Session"));
-        }
-
-        private static ILocation SetupConnection(Cookie sessionCookie)
-        {
-            // Qlik Sense Server with no special settings
-            ILocation location = Qlik.Engine.Location.FromUri(_qlikSenseServerUri);
-
-            // Defining the location as an existing session to Qlik Sense Server
-            location.AsExistingSessionViaProxy(sessionCookie.Value, sessionCookie.Name);
-            return location;
-        }
-
-        private static void PrintQlikSenseVersionNumber(ILocation location)
-        {
-            try
-            {
-                using (IHub hub = location.Hub())
-                {
-                    Console.WriteLine(hub.EngineVersion().ComponentVersion);
-                }
-            }
-            catch (CommunicationErrorException cex)
-            {
-                Console.WriteLine("Can not connect to Qlik Sense instance, check that Qlik Sense is running." + Environment.NewLine + cex.Message);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("General error." + Environment.NewLine + ex.Message);
-            }
-            Console.ReadLine();
         }
     }
 }
