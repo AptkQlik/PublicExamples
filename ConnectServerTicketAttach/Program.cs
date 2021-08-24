@@ -37,8 +37,11 @@ namespace ConnectServerTicketAttach
             CookieContainer cookieContainer = new CookieContainer();
             var connectionHandler = new HttpClientHandler
             {
-                UseDefaultCredentials = true,
-                CookieContainer = cookieContainer
+                CookieContainer = cookieContainer,
+                Credentials = new CredentialCache
+                {
+                    {uri, "ntlm", CredentialCache.DefaultCredentials.GetCredential(uri, "ntlm")}
+                }
             };
             var connection = new HttpClient(connectionHandler);
 
@@ -47,7 +50,7 @@ namespace ConnectServerTicketAttach
 
             connection.GetAsync(uri).Wait();
 
-            IEnumerable<Cookie> responseCookies = cookieContainer.GetCookies(uri).Cast<Cookie>();
+            IEnumerable<Cookie> responseCookies = cookieContainer.GetCookies(uri);
 
             return responseCookies.First(cookie => cookie.Name.Equals("X-Qlik-Session"));
         }
