@@ -3,10 +3,10 @@ using Qlik.Engine;
 
 namespace ConnectQcsApiKey
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
+    class Program
+    {
+        static void Main(string[] args)
+        {
             const string key = "<API key>";
             const string appId = "<appId>";
             const string url = "<uri>";
@@ -19,5 +19,5 @@ namespace ConnectQcsApiKey
                 Console.WriteLine(app.GetAppProperties().Title);
             }
         }
-	}
+    }
 }
