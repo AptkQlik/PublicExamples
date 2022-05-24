@@ -27,6 +27,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lists", "Lists\Lists.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectQcsApiKey", "ConnectQcsApiKey\ConnectQcsApiKey.csproj", "{77CFE51C-69AC-479C-8A39-A195C7177E67}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObserveSessionTimeout", "ObserveSessionTimeout\ObserveSessionTimeout.csproj", "{A1E919B7-2429-4819-BAE4-4F71AFB7CAB3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObserveSessionTimeoutQcs", "ObserveSessionTimeoutQcs\ObserveSessionTimeoutQcs.csproj", "{6DD54202-25DF-4360-8B18-2933FA04353D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +85,14 @@ Global
 		{77CFE51C-69AC-479C-8A39-A195C7177E67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77CFE51C-69AC-479C-8A39-A195C7177E67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77CFE51C-69AC-479C-8A39-A195C7177E67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1E919B7-2429-4819-BAE4-4F71AFB7CAB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1E919B7-2429-4819-BAE4-4F71AFB7CAB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1E919B7-2429-4819-BAE4-4F71AFB7CAB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1E919B7-2429-4819-BAE4-4F71AFB7CAB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DD54202-25DF-4360-8B18-2933FA04353D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DD54202-25DF-4360-8B18-2933FA04353D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DD54202-25DF-4360-8B18-2933FA04353D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DD54202-25DF-4360-8B18-2933FA04353D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
