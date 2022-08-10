@@ -7,9 +7,9 @@ namespace ConnectQcsApiKey
     {
         static void Main(string[] args)
         {
-            const string key = "<API key>";
-            const string appId = "<appId>";
             const string url = "<uri>";
+            const string appId = "<appId>";
+            const string key = "<API key>";
 
             var location = QcsLocation.FromUri(url);
             location.AsApiKey(key);
