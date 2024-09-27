@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+      <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Qlik.OAuthManager" Version="0.1.0" />
+    <PackageReference Include="QlikSense.NetSDK" Version="16.8.0" />
+    <PackageReference Include="QlikSenseRestClient" Version="1.16.0" />
+  </ItemGroup>
+
+</Project>
