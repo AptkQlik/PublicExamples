@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="QlikSense.NetSDK" Version="16.0.1" />
+    <PackageReference Include="QlikSense.NetSDK" Version="16.8.0" />
   </ItemGroup>
 
 </Project>
