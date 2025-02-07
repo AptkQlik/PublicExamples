@@ -12,6 +12,7 @@ namespace ExportDataToExcel
             var url = "<url>";
             var appId = "<appId>";
             var objectId = "<objectId>";
+
             var cubePath = "/qHyperCubeDef";
             var destinationFile = @"ExportedData.xlsx";
 
@@ -22,7 +23,7 @@ namespace ExportDataToExcel
             using (var app = location.App(appId))
             {
                 var obj = app.GetGenericObject(objectId);
-                Console.WriteLine($"Exporting data from app: {appId}, object: {objectId}, hypercube path: \"{cubePath}\" ");
+                Console.WriteLine($"Exporting data.\n  app:    {appId}\n  object: {objectId}\n  path:   \"{cubePath}\"");
                 exportResult = obj.ExportData(NxExportFileType.EXPORT_OOXML, cubePath, serveOnce: true);
             }
 
@@ -31,7 +32,7 @@ namespace ExportDataToExcel
             Console.WriteLine($"Exporting excel file to: {destinationFile}");
             var binData = client.GetBytes(exportResult.Url);
             File.WriteAllBytes(destinationFile, binData);
-            Console.WriteLine($"Wrote {binData.Length} to {destinationFile}.");
+            Console.WriteLine($"Wrote {binData.Length} bytes to {destinationFile}.");
         }
     }
 }
